@@ -1,63 +1,42 @@
 
-#include <iostream>
 #include "BubbleSort.h"
 
-// To Do: Should be lists for much less complexity when you cant do it recursively. 
-
-int main()
+BubbleSort::BubbleSort()
 {
-
-	int elements = 0;
-	stack<float> UnorganizedNums;
-
-	cout << "Input how many elements you want: ";
-	cin >> elements;
-	cout << " " << endl;
-	cout << "Write your elements in random order" << endl;
-	for(int i = 0; i < elements; i++)
-	{
-		float input;
-		cout << "Element " << i+1 << ": ";
-		cin >> input;
-		UnorganizedNums.push(input);
-	}
-
-	cout << "These are the input elements" << endl;
-	PrintStack(UnorganizedNums);
-
-	cout << "These are the input elements sorted by; Bubble Sort" << endl;
-	//BubbleSort(UnorganizedNums);
-	PrintStack(UnorganizedNums);
-	
 }
 
-void PrintStack(stack<float> st)
+void BubbleSort::sort(vector<float>& nums)
 {
-	int n = st.size();
-	stack<float> st2;
+	// Ends the sorting function if there is nothing to sort
+	if (nums.empty()) return;
 
-	for (int i = 0; i < n; i++)
+	// Checks elements one by one and swaps them if unsorted
+	for (int i = 0; i < (nums.size() - 1); i++)
 	{
-		st2.push(st.top());
-		st.pop();
+		if (nums[i] > nums[i + 1])
+			swap(nums, i);
 	}
 
-	for (int i = 0; i < n; i++)
-	{
-		cout << st2.top();
-		st2.pop();
-	}
-
-	cout << " " << endl;
+	// Checks if the order is correct, if not sort again
+	if (!CheckOrder(nums))
+		sort(nums);
 }
 
-void BubbleSort(stack<float> st)
+void BubbleSort::swap(vector<float>& nums, int i)
 {
-	int n = st.size();
+	float temp = nums[i];
+	nums[i] = nums[i + 1];
+	nums[i + 1] = temp;
+}
 
-	for (int i = 0; i < n; i++)
+bool BubbleSort::CheckOrder(vector<float>& nums)
+{
+	// Iteratively trough the vector, returns true if sorted
+	for (int i = 0; i < (nums.size() - 1); i++)
 	{
-		if (st2.top)
+		if (nums[i] > nums[i + 1])
+			return false;
 	}
+	return true;
 }
 
