@@ -2,7 +2,6 @@
 
 // C++ libraries
 #include <vector>
-#include <random>
 #include <iostream>
 
 // Sorting classes include
@@ -57,10 +56,15 @@ public:
 		/**
 		 * \brief Function that adds random elements to input vector
 		 * \param nums Address to the vector that will get random values
-		 * \param bottom The bottom limit for the number randomizer
-		 * \param top The top limit for the number randomizer 
 		 */
-		void randomDefineVector(vector<float>& nums, int bottom, int top);
+		void randomDefineVector(vector<float>& nums);
+
+			/**
+			 * \brief function to generate random positive or negative (1/10 of pos) floats
+			 * \param numbersToGenerate input how big the numbers to generate should be
+			 * \return A random float with max value being 2x input, 
+			 */
+			float GetRandomFloat(int numbersToGenerate);
 
 	/**
 	 * \brief User logic for choosing witch sorting algorithm to use
@@ -96,7 +100,7 @@ public:
 		* \param nums
 		* Address to the vector that will be printed
 		*/
-		void print(vector<float>& nums);
+		void print(vector<float>& nums, size_t index = 0);
 
 	/**
 	* \brief User logic that resets the program if user wants to use it again

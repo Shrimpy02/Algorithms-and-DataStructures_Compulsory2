@@ -4,6 +4,14 @@ MergeSort::MergeSort()
 {
 }
 
-void MergeSort::Sort(vector<float>& nums)
+void MergeSort::sort(vector<float>& nums, int start, int end)
 {
+	
+}
+
+void MergeSort::swap(float& a, float& b)
+{
+	float temp = a;
+	a = b;
+	b = temp;
 }

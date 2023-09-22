@@ -39,7 +39,7 @@ void CompMain::dataSettChoice()
 	case 2:
 		cout << "Random" << endl;
 		cout << endl;
-		randomDefineVector(randomNumbers,-100, 500);
+		randomDefineVector(randomNumbers);
 
 		break;
 	default:
@@ -109,20 +109,27 @@ void CompMain::redoChoice()
 	}
 }
 
-void CompMain::randomDefineVector(vector<float>& nums, int bottom, int top)
+void CompMain::randomDefineVector(vector<float>& nums)
 {
-
-	// init and set distribution range:
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<> dis(bottom, top);
-
 	cout << "Input how many elements you want: ";
 	cin >> elements;
 	cout << endl;
-
+	
 	for (int i = 0; i < elements; i++)
-		nums.push_back(dis(gen));
+	{
+		float n = GetRandomFloat(elements);
+
+		nums.push_back(n);
+	}
+}
+
+float CompMain::GetRandomFloat(int numbersToGenerate)
+{
+	int pos = rand() % 10;
+	float n = rand() % (numbersToGenerate * 2);
+	if (pos == 1)
+		n = -n;
+	return n;
 }
 
 void CompMain::sortingChoice()
@@ -170,14 +177,16 @@ void CompMain::sortingChoice()
 
 void CompMain::sort_bubble(vector<float>& nums)
 {
-	cout << "These are the input elements" << endl;
+	cout << "Input elements: ";
 	print(nums);
 
 	b_sort->sort(nums);
 	cout << endl;
+	cout << endl;
 
-	cout << "Bubble Sort:" << endl;
+	cout << "Bubble Sort: ";
 	print(nums);
+	cout << endl;
 	cout << endl;
 
 	redoChoice();
@@ -185,27 +194,43 @@ void CompMain::sort_bubble(vector<float>& nums)
 
 void CompMain::sort_merge(vector<float>& nums, int size)
 {
+	cout << "Input elements: ";
+	print(nums);
+
+	m_sort->sort(nums, 0, size - 1);
+	cout << endl;
+	cout << endl;
+
+	cout << "Bubble Sort: ";
+	print(nums);
+	cout << endl;
+	cout << endl;
+
+	redoChoice();
 }
 
 void CompMain::sort_quick(vector<float>& nums,int size)
 {
-	cout << "These are the input elements" << endl;
+	cout << "Input elements: ";
 	print(nums);
 
-	q_sort->Sort(nums, 0, size - 1);
+	q_sort->sort(nums, 0, size - 1);
+	cout << endl;
 	cout << endl;
 
-	cout << "Quick Sort:" << endl;
+	cout << "Quick Sort: ";
 	print(nums);
+	cout << endl;
 	cout << endl;
 
 	redoChoice();
 }
 
 
-void CompMain::print(vector<float>& nums)
+void CompMain::print(vector<float>& nums, size_t index)
 {
-	for (int i = 0; i < nums.size(); i++)
-		cout << nums[i] << " ";
-	cout << endl;
+	if (index < nums.size()) {
+		std::cout << nums[index] << " ";
+		print(nums, index + 1);
+	}
 }
