@@ -39,4 +39,3 @@ bool BubbleSort::CheckOrder(vector<float>& nums)
 	}
 	return true;
 }
-

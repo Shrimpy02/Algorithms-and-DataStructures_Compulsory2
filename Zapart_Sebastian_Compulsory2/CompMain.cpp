@@ -231,7 +231,7 @@ void CompMain::timeOrOutputChoice()
 	case 2:
 		cout << "Sorting time" << endl;
 		cout << endl;
-		WhatToSortChoice();
+		WhatToTestChoice();
 
 		break;
 	default:
@@ -243,7 +243,7 @@ void CompMain::timeOrOutputChoice()
 	}
 }
 
-void CompMain::WhatToSortChoice()
+void CompMain::WhatToTestChoice()
 {
 	randomDefineVector(randomNumbers);
 	
@@ -284,7 +284,7 @@ void CompMain::WhatToSortChoice()
 		cout << "That input was not 1 or 2" << endl;
 		cout << endl;
 
-		WhatToSortChoice();
+		WhatToTestChoice();
 	}
 }
 

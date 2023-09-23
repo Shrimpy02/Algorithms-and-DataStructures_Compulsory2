@@ -95,15 +95,35 @@ public:
 		 */
 		void sort_quick(vector<float>& nums, int size);
 
+	/**
+	 * \brief Initial user choice
+	 */
 	void timeOrOutputChoice();
 
-	void WhatToSortChoice();
+		/**
+		 * \brief What sorting algorithm the user wants to test
+		 */
+		void WhatToTestChoice();
 
-	void BubbleSortTime(vector<float>& nums);
+			/**
+			 * \brief Tests the runtime for bubble sort algorithm
+			 * \param nums Vector to be sorted and tested
+			 */
+			void BubbleSortTime(vector<float>& nums);
 
-	void MergeSortTime(vector<float>& nums, int size);
+			/**
+			 * \brief Tests the runtime for merge sort algorithm
+			 * \param nums input vector to be sorted and tested
+			 * \param size size of the input vector
+			 */
+			void MergeSortTime(vector<float>& nums, int size);
 
-	void QuickSortTime(vector<float>& nums, int size);
+			/**
+			* \brief Tests the runtime for quick sort algorithm
+			* \param nums input vector to be sorted and tested
+			* \param size size of the input vector
+			*/
+			void QuickSortTime(vector<float>& nums, int size);
 
 	/**
 	* \brief User logic that resets the program if user wants to use it again
@@ -117,7 +137,6 @@ public:
 	* Address to the vector that will be printed
 	*/
 	void print(vector<float>& nums, size_t index = 0);
-
 };
 
 

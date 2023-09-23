@@ -23,13 +23,13 @@ public:
 	 */
 	void sort(vector<float>& nums, int start, int end);
 
-	/**
-	 * \brief Sub function of merge sort, this is what
-	 * actually sorts and re merges the vectors.
-	 * \param nums the input vector for merging 
-	 * \param start the starting index of input vector
-	 * \param middle the middle index of input vector
-	 * \param end the end index of input vector
-	 */
-	void merge(vector<float>& nums, int start, int middle, int end);
+		/**
+		 * \brief Sub function of merge sort, this is what
+		 * actually sorts and re merges the vectors.
+		 * \param nums the input vector for merging 
+		 * \param start the starting index of input vector
+		 * \param middle the middle index of input vector
+		 * \param end the end index of input vector
+		 */
+		void merge(vector<float>& nums, int start, int middle, int end);
 };

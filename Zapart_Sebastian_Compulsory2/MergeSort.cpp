@@ -1,6 +1,5 @@
 #include "MergeSort.h"
 
-#include <ios>
 
 MergeSort::MergeSort()
 {
