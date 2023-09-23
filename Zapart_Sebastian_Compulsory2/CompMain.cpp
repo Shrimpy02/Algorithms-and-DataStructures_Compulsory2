@@ -1,4 +1,3 @@
-
 #include "CompMain.h"
 
 int main()
@@ -55,15 +54,16 @@ void CompMain::userDefineVector()
 {
 	cout << "Input how many elements you want: ";
 	cin >> elements;
-		if (elements <= 0)
-		{
-			cout << endl;
-			cout << elements << " Elements means there will be no output" << endl;
-		}
-	cout << endl;
-
-	if(elements > 0)
+	if (elements <= 0)
 	{
+		cout << endl;
+		cout << elements << " Elements means there will be no output" << endl;
+		cout << endl;
+		userDefineVector();
+	}
+	else
+	{
+		cout << endl;
 		cout << "Input your elements in a random order" << endl;
 		for (int i = 0; i < elements; i++)
 		{
@@ -76,50 +76,28 @@ void CompMain::userDefineVector()
 	}
 }
 
-void CompMain::redoChoice()
-{
-	cout << "Do you want to do it again?" << endl;
-	cout << "1. Yes" << endl;
-	cout << "2. No" << endl;
-	cout << "1-2: ";
-	cin >> choice;
-
-	switch (choice)
-	{
-	case 0:
-		cout << endl;
-		cout << "Incorrect Data type" << endl;
-		cout << "Exit on Code " << choice << endl;
-
-		exit(choice);
-	case 1:
-		cout << endl;
-		CompMain();
-
-		break;
-	case 2:
-		exit(choice);
-
-	default:
-		cout << endl;
-		cout << "That input was not 1 or 2" << endl;
-		cout << endl;
-
-		redoChoice();
-	}
-}
-
 void CompMain::randomDefineVector(vector<float>& nums)
 {
 	cout << "Input how many elements you want: ";
 	cin >> elements;
 	cout << endl;
-	
-	for (int i = 0; i < elements; i++)
-	{
-		float n = GetRandomFloat(elements);
 
-		nums.push_back(n);
+	if (elements <= 0)
+	{
+		cout << endl;
+		cout << "Less than 0 elements means there will be no output" << endl;
+		cout << endl;
+		randomDefineVector(nums);
+	}
+	else
+	{
+		cout << endl;
+		for (int i = 0; i < elements; i++)
+		{
+			float n = GetRandomFloat(elements);
+
+			nums.push_back(n);
+		}
 	}
 }
 
@@ -157,13 +135,13 @@ void CompMain::sortingChoice()
 	case 2:
 		cout << "Recursive Merge Sort" << endl;
 		cout << endl;
-		sort_merge(randomNumbers,elements);
+		sort_merge(randomNumbers, elements);
 
 		break;
 	case 3:
 		cout << "Recursive Quick Sort" << endl;
 		cout << endl;
-		sort_quick(randomNumbers,elements);
+		sort_quick(randomNumbers, elements);
 
 		break;
 	default:
@@ -201,7 +179,7 @@ void CompMain::sort_merge(vector<float>& nums, int size)
 	cout << endl;
 	cout << endl;
 
-	cout << "Bubble Sort: ";
+	cout << "Merge Sort: ";
 	print(nums);
 	cout << endl;
 	cout << endl;
@@ -209,7 +187,7 @@ void CompMain::sort_merge(vector<float>& nums, int size)
 	redoChoice();
 }
 
-void CompMain::sort_quick(vector<float>& nums,int size)
+void CompMain::sort_quick(vector<float>& nums, int size)
 {
 	cout << "Input elements: ";
 	print(nums);
@@ -226,11 +204,44 @@ void CompMain::sort_quick(vector<float>& nums,int size)
 	redoChoice();
 }
 
+void CompMain::redoChoice()
+{
+	cout << "Do you want to do it again?" << endl;
+	cout << "1. Yes" << endl;
+	cout << "2. No" << endl;
+	cout << "1-2: ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 0:
+		cout << endl;
+		cout << "Incorrect Data type" << endl;
+		cout << "Exit on Code " << choice << endl;
+
+		exit(choice);
+	case 1:
+		cout << endl;
+		CompMain();
+
+		break;
+	case 2:
+		exit(choice);
+
+	default:
+		cout << endl;
+		cout << "That input was not 1 or 2" << endl;
+		cout << endl;
+
+		redoChoice();
+	}
+}
 
 void CompMain::print(vector<float>& nums, size_t index)
 {
-	if (index < nums.size()) {
-		std::cout << nums[index] << " ";
-		print(nums, index + 1);
+	cout << endl;
+	for (int i = 0; i < nums.size(); i++)
+	{
+		cout << nums[i] << " ";
 	}
 }

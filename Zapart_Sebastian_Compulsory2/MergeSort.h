@@ -15,7 +15,8 @@ public:
 	MergeSort();
 
 	/**
-	* \brief 
+	* \brief recursively breaks down a vector
+	* into sub vectors then sorts them while merging back
 	* \param nums The vector to be sorted
 	* \param start The start index of the vector
 	* \param end The end index of the vector
@@ -23,9 +24,12 @@ public:
 	void sort(vector<float>& nums, int start, int end);
 
 	/**
-	 * \brief swaps values a with b through the values address
-	 * \param a Location a
-	 * \param b Location b
+	 * \brief Sub function of merge sort, this is what
+	 * actually sorts and re merges the vectors.
+	 * \param nums the input vector for merging 
+	 * \param start the starting index of input vector
+	 * \param middle the middle index of input vector
+	 * \param end the end index of input vector
 	 */
-	void swap(float& a, float& b);
+	void merge(vector<float>& nums, int start, int middle, int end);
 };

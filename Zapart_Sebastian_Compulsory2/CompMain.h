@@ -94,17 +94,17 @@ public:
 		 */
 		void sort_quick(vector<float>& nums, int size);
 
-		/**
-		* \brief
-		* Prints each element of a vector iteratively.
-		* \param nums
-		* Address to the vector that will be printed
-		*/
-		void print(vector<float>& nums, size_t index = 0);
+			/**
+			* \brief User logic that resets the program if user wants to use it again
+			*/
+			void redoChoice();
 
 	/**
-	* \brief User logic that resets the program if user wants to use it again
+	* \brief
+	* Prints each element of a vector iteratively.
+	* \param nums
+	* Address to the vector that will be printed
 	*/
-		void redoChoice();
+	void print(vector<float>& nums, size_t index = 0);
 };
 
