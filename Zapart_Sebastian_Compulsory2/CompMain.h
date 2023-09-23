@@ -3,6 +3,7 @@
 // C++ libraries
 #include <vector>
 #include <iostream>
+#include <chrono>
 
 // Sorting classes include
 #include "BubbleSort.h"
@@ -94,10 +95,20 @@ public:
 		 */
 		void sort_quick(vector<float>& nums, int size);
 
-			/**
-			* \brief User logic that resets the program if user wants to use it again
-			*/
-			void redoChoice();
+	void timeOrOutputChoice();
+
+	void WhatToSortChoice();
+
+	void BubbleSortTime(vector<float>& nums);
+
+	void MergeSortTime(vector<float>& nums, int size);
+
+	void QuickSortTime(vector<float>& nums, int size);
+
+	/**
+	* \brief User logic that resets the program if user wants to use it again
+	*/
+	void redoChoice();
 
 	/**
 	* \brief
@@ -106,5 +117,10 @@ public:
 	* Address to the vector that will be printed
 	*/
 	void print(vector<float>& nums, size_t index = 0);
+
 };
+
+
+
+
 

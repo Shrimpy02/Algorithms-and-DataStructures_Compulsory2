@@ -7,6 +7,10 @@ int main()
 
 CompMain::CompMain()
 {
+
+	cout << "Do you want to test sorting time or sorting output? " << endl;
+	timeOrOutputChoice();
+
 	cout << "How do you want to generate the random data sett?" << endl;
 	dataSettChoice();
 
@@ -201,6 +205,131 @@ void CompMain::sort_quick(vector<float>& nums, int size)
 	cout << endl;
 	cout << endl;
 
+	redoChoice();
+}
+
+void CompMain::timeOrOutputChoice()
+{
+	cout << "1. Sorting output" << endl;
+	cout << "2. Sorting time" << endl;
+	cout << "1-2: ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 0:
+		cout << endl;
+		cout << "Incorrect Data type" << endl;
+		cout << "Exit on Code " << choice << endl;
+
+		exit(choice);
+	case 1:
+		cout << "Sorting output" << endl;
+		cout << endl;
+
+		break;
+	case 2:
+		cout << "Sorting time" << endl;
+		cout << endl;
+		WhatToSortChoice();
+
+		break;
+	default:
+		cout << endl;
+		cout << "That input was not 1 or 2" << endl;
+		cout << endl;
+
+		timeOrOutputChoice();
+	}
+}
+
+void CompMain::WhatToSortChoice()
+{
+	randomDefineVector(randomNumbers);
+	
+	cout << "1. Bubble Sort" << endl;
+	cout << "2. Merge Sort" << endl;
+	cout << "3. Quick Sort" << endl;
+	cout << "1-3: ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 0:
+		cout << endl;
+		cout << "Incorrect Data type" << endl;
+		cout << "Exit on Code " << choice << endl;
+
+		exit(choice);
+	case 1:
+		cout << "Bubble Sort" << endl;
+		cout << endl;
+		BubbleSortTime(randomNumbers);
+
+		break;
+	case 2:
+		cout << "Merge Sort" << endl;
+		cout << endl;
+		MergeSortTime(randomNumbers,elements);
+
+		break;
+	case 3:
+		cout << "Quick Sort" << endl;
+		cout << endl;
+		QuickSortTime(randomNumbers,elements);
+
+		break;
+	default:
+		cout << endl;
+		cout << "That input was not 1 or 2" << endl;
+		cout << endl;
+
+		WhatToSortChoice();
+	}
+}
+
+void CompMain::BubbleSortTime(vector<float>& nums)
+{
+
+	// Measure execution time
+	auto start_time = std::chrono::high_resolution_clock::now();
+	b_sort->sort(nums);
+	auto end_time = std::chrono::high_resolution_clock::now();
+
+	auto duration_ms = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+
+	std::cout << "Bubble Sort took " << duration_ms.count() << " microseconds." << std::endl;
+	cout << endl;
+	redoChoice();
+
+}
+
+void CompMain::MergeSortTime(vector<float>& nums, int size)
+{
+	// Measure execution time
+	auto start_time = std::chrono::high_resolution_clock::now();
+	m_sort->sort(nums,0, size -1);
+	auto end_time = std::chrono::high_resolution_clock::now();
+
+	auto duration_ms = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+
+	std::cout << "Merge Sort took " << duration_ms.count() << " microseconds." << std::endl;
+	cout << endl;
+	redoChoice();
+}
+
+void CompMain::QuickSortTime(vector<float>& nums, int size)
+{
+	// Measure execution time
+	auto start_time = std::chrono::high_resolution_clock::now();
+	m_sort->sort(nums, 0, size - 1);
+	auto end_time = std::chrono::high_resolution_clock::now();
+
+
+	auto duration_ms = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+	std::cout << "Quick Sort took " << duration_ms.count() << " microseconds." << std::endl;
+
+	cout << endl;
 	redoChoice();
 }
 
